@@ -1,0 +1,60 @@
+.container {
+  max-width: $website-width;
+  padding: 0 1.5rem;
+  margin: auto;
+  overflow: hidden;
+}
+
+// inheritance - '% sign' is to extend this style
+%btn-shared {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  transition: all 0.5s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn {
+  // btn-main class
+  &-main {
+    // @extend - to inherit or extend class
+    @extend %btn-shared;
+    color: #333;
+    background-color: $main-color;
+  }
+
+  // btn-light class
+  &-light {
+    // @extend - to inherit or extend class
+    @extend %btn-shared;
+    color: #333;
+    background-color: $light-color;
+  }
+
+  // btn-dark class
+  &-dark {
+    // @extend - to inherit or extend class
+    @extend %btn-shared;
+    color: #f4f4f4;
+    background-color: $dark-color;
+  }
+}
+
+// anything with 'btn-' inside the class, we want to grab on to
+// So any button with a class of 'btn-', apply this rule
+button[class^='btn-']:hover,
+// same thing with link
+a[class^='btn-']:hover,
+// with input also
+input[class^='btn-']:hover {
+  background-color: $main-color;
+}
+
+.lead {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+.text-center {
+  text-align: center;
+}
